@@ -69,8 +69,8 @@ class LineSdkWrapper {
 
         val lineAuthenticationParams = LineAuthenticationParams.Builder()
             .scopes(Scope.convertToScopeList(scopes))
+            .botPrompt(botPromptString?.let { LineAuthenticationParams.BotPrompt.valueOf(it) })
             .apply {
-                botPromptString?.let { botPrompt(LineAuthenticationParams.BotPrompt.valueOf(it)) }
                 idTokenNonce?.let { nonce(it) }
             }
             .build()
