@@ -54,7 +54,7 @@ class LineSdkWrapper {
         activity: Activity,
         scopes: List<String> = listOf("profile"),
         onlyWebLogin: Boolean = false,
-        botPromptString: String = "normal",
+        botPromptString: String? = null,
         idTokenNonce: String? = null,
         result: Result
     ) {
@@ -69,7 +69,7 @@ class LineSdkWrapper {
         val lineAuthenticationParams = LineAuthenticationParams.Builder()
             .scopes(Scope.convertToScopeList(scopes))
             .apply {
-                botPrompt(LineAuthenticationParams.BotPrompt.valueOf(botPromptString))
+                botPromptString?.let { botPrompt(LineAuthenticationParams.BotPrompt.valueOf(it)) }
                 idTokenNonce?.let { nonce(it) }
             }
             .build()

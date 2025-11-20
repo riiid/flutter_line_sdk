@@ -45,7 +45,7 @@ class FlutterLineSdkPlugin : MethodCallHandler, FlutterPlugin, ActivityAware {
                 withActivity(result) { activity ->
                     val scopes = call.argument<List<String>>("scopes").orEmpty()
                     val isWebLogin = call.argument<Boolean>("onlyWebLogin") ?: false
-                    val botPrompt = call.argument<String>("botPrompt") ?: "normal"
+                    val botPrompt = call.argument<String?>("botPrompt")
                     val idTokenNonce = call.argument<String>("idTokenNonce")
                     val loginRequestCode = call.argument<Int>("loginRequestCode") 
                         ?: DEFAULT_ACTIVITY_RESULT_REQUEST_CODE

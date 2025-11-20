@@ -38,7 +38,7 @@ class LoginOption {
   /// - `normal`: A button for adding the LINE Official Account as a friend is displayed on the consent screen.
   /// - `aggressive`: After the user grants the requested permissions on the consent screen, a new
   /// screen opens asking the user to add the LINE Official Account as a friend.
-  String botPrompt;
+  String? botPrompt;
 
   /// Request code that LINE login activity will be called with.
   int requestCode;
