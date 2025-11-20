@@ -62,6 +62,7 @@ class LineSdkWrapper {
             Log.d(TAG, "login")
             Log.d(TAG, "channelId:$channelId")
             Log.d(TAG, "scopes: $scopes")
+            Log.d(TAG, "botPromptString: $botPromptString")
         }
 
         this.loginRequestCode = loginRequestCode
