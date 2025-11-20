@@ -62,15 +62,14 @@ class LineSdkWrapper {
             Log.d(TAG, "login")
             Log.d(TAG, "channelId:$channelId")
             Log.d(TAG, "scopes: $scopes")
-            Log.d(TAG, "botPromptString: $botPromptString")
         }
 
         this.loginRequestCode = loginRequestCode
 
         val lineAuthenticationParams = LineAuthenticationParams.Builder()
             .scopes(Scope.convertToScopeList(scopes))
-            .botPrompt(botPromptString?.let { LineAuthenticationParams.BotPrompt.valueOf(it) })
             .apply {
+                botPromptString?.let { botPrompt(LineAuthenticationParams.BotPrompt.valueOf(it)) }
                 idTokenNonce?.let { nonce(it) }
             }
             .build()
